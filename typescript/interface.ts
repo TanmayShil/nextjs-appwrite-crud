@@ -6,6 +6,12 @@ export interface Product {
   createdAt?: string;
 }
 
+export interface ProductFormData {
+  name: string;
+  description: string;
+  image: FileList;
+}
+
 export interface AuthUser {
   name?: string;
   email: string;
