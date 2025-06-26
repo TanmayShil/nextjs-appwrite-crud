@@ -6,10 +6,9 @@ export interface Product {
   createdAt?: string;
 }
 
-export interface AuthSignFormData {
-  name: string;
+export interface AuthUser {
+  name?: string;
   email: string;
-  password: string;
 }
 
 export interface AuthFormData {
