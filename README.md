@@ -45,10 +45,7 @@ This is a full-featured **Admin Panel** built using:
 
 ## 📁 Project Structure
 
----
-
 <pre><code>
-
 my-admin-panel/
 ├── components/
 │ ├── AdminNavbar.tsx
@@ -78,7 +75,6 @@ my-admin-panel/
 ├── tsconfig.json # TypeScript config
 ├── next.config.js # Next.js config
 └── README.md # Project documentation
-  
 </code></pre>
 
 ## 🛠️ Installation
