@@ -86,8 +86,23 @@ my-admin-panel/
 ```bash
 git clone https://github.com/TanmayShil/nextjs-appwrite-crud.git
 npm install
-
 ```
 
 ---
+
+## 2. Set Up Appwrite
+- Create a Project, Database, Collection, and Storage Bucket in Appwrite
+- Add environment variables:
+## 📄 .env.local
+
+```bash
+NEXT_PUBLIC_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+NEXT_PUBLIC_APPWRITE_PROJECT=your_project_id
+NEXT_PUBLIC_APPWRITE_DATABASE=products_db
+NEXT_PUBLIC_APPWRITE_COLLECTION=products
+NEXT_PUBLIC_APPWRITE_BUCKET=product_images
+```
+
+---
+
 
