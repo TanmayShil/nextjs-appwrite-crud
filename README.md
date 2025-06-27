@@ -105,4 +105,31 @@ NEXT_PUBLIC_APPWRITE_BUCKET=product_images
 
 ---
 
+## 🔐 Admin Route Protection
 
+- All /admin/* routes are protected using middleware.ts
+- Tokens are stored in cookies using js-cookie
+- If user is not logged in, they’re redirected to /login
+
+---
+
+## 📸 Product Schema
+
+Database Collection: products
+
+| Field       | Type                      |
+| ----------- | ------------------------- |
+| name        | string                    |
+| description | string                    |
+| image       | string (URL from Storage) |
+
+Storage Bucket: product_images
+
+---
+
+## 📦 Commands
+
+| Command         | Description          |
+| --------------- | -------------------- |
+| `npm run dev`   | Start development    |
+| `npm run build` | Build for production |
