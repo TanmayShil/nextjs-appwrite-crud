@@ -46,3 +46,37 @@ This is a full-featured **Admin Panel** built using:
 ## 📁 Project Structure
 
 ---
+
+<pre><code>
+
+my-admin-panel/
+├── components/
+│ ├── AdminNavbar.tsx
+│ ├── forms/ProductForm.tsx
+│ └── layouts/AdminLayout.tsx
+├── pages/
+│ ├── login.tsx
+│ ├── signup.tsx
+│ └── admin/
+│ ├── index.tsx # Product List
+│ └── add/
+│ ├── index.tsx # Add Product
+│ └── [id].tsx # Edit Product
+├── typescript/
+│ ├── interface.ts
+│ └── type.ts
+├── utils/
+│ ├── appwrite.ts
+│ └── auth.ts
+├── middleware.ts
+├── mui-theme/ # Custom MUI theme setup
+│ ├── _muiPalette.ts # Theme color logic
+│ ├── _muiTheme.ts # Complete theme config
+│ └── MuiThemeProvider.tsx # Theme provider component
+├── public/ # Static assets (favicon, images, etc.)
+├── styles/ # Global styles (optional)
+├── tsconfig.json # TypeScript config
+├── next.config.js # Next.js config
+└── README.md # Project documentation
+  
+</code></pre>
