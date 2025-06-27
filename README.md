@@ -129,3 +129,11 @@ Storage Bucket: product_images
 | --------------- | -------------------- |
 | `npm run dev`   | Start development    |
 | `npm run build` | Build for production |
+
+---
+
+## 🙋‍♂️ Author
+
+Made with ❤️ by Tanmay Shil
+GitHub: [@TanmayShil](https://github.com/TanmayShil)
+
