@@ -80,3 +80,14 @@ my-admin-panel/
 └── README.md # Project documentation
   
 </code></pre>
+
+## 🛠️ Installation
+
+```bash
+git clone https://github.com/TanmayShil/nextjs-appwrite-crud.git
+npm install
+
+```
+
+---
+
