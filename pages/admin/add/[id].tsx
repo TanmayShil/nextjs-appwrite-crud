@@ -17,8 +17,13 @@ export default function EditProductPage() {
   useEffect(() => {
     if (id) {
       databases
-        .getDocument(DB_ID, COLLECTION_ID, id as string)
+        .getDocument(
+          process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!,
+          process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID!,
+          id as string
+        )
         .then((res) => {
+          console.log("resssss", res)
           setProduct(res as Product);
         })
         .catch(() => {

@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Table from "@/components/Table";
-import { Container, Typography, CircularProgress, Box } from "@mui/material";
+import {
+  Container,
+  Typography,
+  CircularProgress,
+  Box,
+  Button,
+} from "@mui/material";
 import { databases } from "@/hooks/utils/appwrite";
+import { useRouter } from "next/router";
 
 const columns = [
   { id: "name", label: "Product Name" },
@@ -10,6 +17,7 @@ const columns = [
 ];
 
 export default function Admin() {
+  const router = useRouter();
   const [rows, setRows] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -48,17 +56,31 @@ export default function Admin() {
     fetchProducts();
   }, []);
 
-  console.log("image", `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/685d3111003dc8f9b64e/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`)
+  console.log(
+    "image",
+    `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/685d3111003dc8f9b64e/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`
+  );
 
   return (
     <Container sx={{ mt: 4 }}>
-      <Typography variant="h4" gutterBottom>
-        Admin Dashboard
-      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "10px",
+        }}
+      >
+        <Typography variant="h4">Admin Dashboard</Typography>{" "}
+        <Button variant="contained" onClick={() => router.push("/admin/add")}>
+          Add Product
+        </Button>
+      </Box>
 
       {loading ? (
         <Box>
-        <CircularProgress />
+          <CircularProgress />
         </Box>
       ) : (
         <Table columns={columns} rows={rows} onDelete={handleDelete} />
