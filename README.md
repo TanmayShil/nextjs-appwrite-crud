@@ -1,40 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🛍️ Next.js Admin Panel with Appwrite, MUI, and TypeScript
 
-## Getting Started
+This is a full-featured **Admin Panel** built using:
 
-First, run the development server:
+- 🧑‍💻 **Next.js + TypeScript**
+- 🎨 **Material UI (MUI) with custom theme**
+- 🔐 **Authentication (Login/Signup)**
+- 📦 **CRUD operations** using **Appwrite** (Database + Storage)
+- 📂 **Admin-protected routes** using middleware
+- 🖼️ **Image upload with preview** + Lottie animations
+- 🍪 **Session token stored in cookies**
+
+---
+
+## ✨ Features
+
+- 🔐 **Signup / Login**
+- 👨‍💼 **Admin-Only Panel** (`/admin`)
+- 📋 **Product Management**
+  - Create product
+  - Edit product
+  - Delete product
+  - Image upload (via Appwrite Storage)
+- ✅ **Form validation** using `react-hook-form` + `yup`
+- 📁 **Image preview before upload**
+- 🌈 Custom **MUI Theme**
+
+---
+
+## 🔧 Tech Stack
+
+| Tool | Purpose |
+|------|---------|
+| [Next.js](https://nextjs.org/) | React Framework |
+| [TypeScript](https://www.typescriptlang.org/) | Static Typing |
+| [Appwrite](https://appwrite.io/) | Auth, DB, Storage |
+| [Material UI](https://mui.com/) | UI Components |
+| [react-hook-form](https://react-hook-form.com/) | Form Handling |
+| [Yup](https://github.com/jquense/yup) | Form Validation |
+| [react-lottie](https://www.npmjs.com/package/react-lottie) | Lottie Animations |
+| [js-cookie](https://github.com/js-cookie/js-cookie) | Cookie-based session |
+| @mui/icons-material | MUI Icon Pack |
+
+---
+
+## 📁 Project Structure
+
+<pre><code>
+my-admin-panel/
+├── components/
+│ ├── AdminNavbar.tsx
+│ ├── forms/ProductForm.tsx
+│ └── layouts/AdminLayout.tsx
+├── pages/
+│ ├── login.tsx
+│ ├── signup.tsx
+│ └── admin/
+│ ├── index.tsx # Product List
+│ └── add/
+│ ├── index.tsx # Add Product
+│ └── [id].tsx # Edit Product
+├── typescript/
+│ ├── interface.ts
+│ └── type.ts
+├── utils/
+│ ├── appwrite.ts
+│ └── auth.ts
+├── middleware.ts
+├── mui-theme/ # Custom MUI theme setup
+│ ├── _muiPalette.ts # Theme color logic
+│ ├── _muiTheme.ts # Complete theme config
+│ └── MuiThemeProvider.tsx # Theme provider component
+├── public/ # Static assets (favicon, images, etc.)
+├── styles/ # Global styles (optional)
+├── tsconfig.json # TypeScript config
+├── next.config.js # Next.js config
+└── README.md # Project documentation
+</code></pre>
+
+## 🛠️ Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/TanmayShil/nextjs-appwrite-crud.git
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 2. Set Up Appwrite
+- Create a Project, Database, Collection, and Storage Bucket in Appwrite
+- Add environment variables:
+## 📄 .env.local
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+NEXT_PUBLIC_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+NEXT_PUBLIC_APPWRITE_PROJECT=your_project_id
+NEXT_PUBLIC_APPWRITE_DATABASE=products_db
+NEXT_PUBLIC_APPWRITE_COLLECTION=products
+NEXT_PUBLIC_APPWRITE_BUCKET=product_images
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔐 Admin Route Protection
 
-## Learn More
+- All /admin/* routes are protected using middleware.ts
+- Tokens are stored in cookies using js-cookie
+- If user is not logged in, they’re redirected to /login
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## 📸 Product Schema
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Database Collection: products
 
-## Deploy on Vercel
+| Field       | Type                      |
+| ----------- | ------------------------- |
+| name        | string                    |
+| description | string                    |
+| image       | string (URL from Storage) |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Storage Bucket: product_images
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+---
+
+## 📦 Commands
+
+| Command         | Description          |
+| --------------- | -------------------- |
+| `npm run dev`   | Start development    |
+| `npm run build` | Build for production |
+
+---
+
+## 🙋‍♂️ Author
+
+Made with ❤️ by Tanmay Shil
+GitHub: [@TanmayShil](https://github.com/TanmayShil)
+
